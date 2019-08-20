@@ -1,19 +1,12 @@
 from sqlalchemy import create_engine #mysql连接函数
-from sqlalchemy.orm import sessionmaker #导入会话象
-
 
 #mysql连接配置
 connect_sql=create_engine(
-     #mysql连接配置
+    #mysql连接配置
     "mysql+pymysql://root:bai940126@111.67.196.17/Mysite",
     encoding="utf-8",  #编码
-   # echo=True    #打印结果
-        )
-
-
-#绑定mysql连接，建立会话
-session=sessionmaker(bind=connect_sql)
-Session=session()
+    # echo=True    #打印结果
+    )
 
 
 """
