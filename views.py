@@ -6,10 +6,11 @@ from create_table import student
 # DATA=student(name="chen",passwd='hao1',sex='1',age=18,num=12)
 # #调用封装的函数，写入mysql表中
 # Insert_into(DATA)
-#
-# AA=Session.query(student.age).filter(student.id>5).all()
-AA=Session.query(student.id).all()
-if AA:
-  print(AA)
-else:
-  print("on")
+
+#根据条件查询数据对象
+Ass=Session.query(student).filter(student.id==27).first()
+#转换成字典(使用.__dict__方法)
+a=Ass.__dict__
+print(a["num"])
+
+
