@@ -7,10 +7,15 @@ from create_table import student
 # #调用封装的函数，写入mysql表中
 # Insert_into(DATA)
 
-#根据条件查询数据对象
-Ass=Session.query(student).filter(student.id==27).first()
-#转换成字典(使用.__dict__方法)
-a=Ass.__dict__
-print(a["num"])
+# #根据条件查询数据对象
+# Ass=Session.query(student).filter(student.id==27).first()
+# #转换成字典(使用.__dict__方法)
+# a=Ass.__dict__
+# print(a["num"])
 
 
+#更改表中已有的数据
+name=15
+#思路：根据条件查询对应的数据，然和使用update()更改数据
+Session.query(student).filter(student.id == 27).update({'name':name})
+Session.commit()
