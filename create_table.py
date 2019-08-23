@@ -16,4 +16,8 @@ class student(Base):
     ig= Column(String(16), default='18')
     ie = Column(String(16), default='18')
 
+#增加to_dict()方法到Base类中
+def to_dict(self):
+    return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+Base.to_dict = to_dict
 Base.metadata.create_all(connect_sql)

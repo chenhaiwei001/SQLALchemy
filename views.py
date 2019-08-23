@@ -2,6 +2,8 @@ from Insert import Insert_into
 from setting import Session
 from create_table import student
 
+
+
 # #写入数据，没有写入的则使用默认值
 # DATA=student(name="chen",passwd='hao1',sex='1',age=18,num=12)
 # #调用封装的函数，写入mysql表中
@@ -14,8 +16,13 @@ from create_table import student
 # print(a["num"])
 
 
-#更改表中已有的数据
-name=15
-#思路：根据条件查询对应的数据，然和使用update()更改数据
-Session.query(student).filter(student.id == 27).update({'name':name})
-Session.commit()
+# #更改表中已有的数据
+# #思路：根据条件查询对应的数据，然和使用update()更改数据
+# Session.query(student).filter(student.id == 27).update({'name':"wei"})
+# Session.commit
+
+
+#将查询的结果转化为字典，去掉多余信息
+ASS=Session.query(student).filter(student.id>5).all()
+print(ASS)
+
