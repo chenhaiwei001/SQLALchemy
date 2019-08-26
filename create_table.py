@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base  #ORM基类
 from sqlalchemy import Column,String,Integer   #导入数据库类型
-from setting import connect_sql #mysql连接变量
+
 
 #创建orm基类
 Base=declarative_base()
@@ -15,9 +15,4 @@ class student(Base):
     num=Column(String(16),default='18')
     ig= Column(String(16), default='18')
     ie = Column(String(16), default='18')
-
-#增加to_dict()方法到Base类中
-def to_dict(self):
-    return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
-Base.to_dict = to_dict
-Base.metadata.create_all(connect_sql)
+    gs=Column(String(16),default="aa")
